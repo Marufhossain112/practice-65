@@ -3,15 +3,18 @@ import { useLoaderData } from "react-router-dom";
 
 const Show = () => {
   const users = useLoaderData();
-    console.log(users);
+    // console.log(users);
   const handleDelete = (user) => {
     const agreement = window.confirm(`Are you sure to delete ${user.name}`);
     if (agreement) {
       fetch(`http://localhost:5000/users/${user._id}`, {
         method: "DELETE",
       })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((res) => res.json()) 
+        .then((data) => {
+          
+          console.log(data)
+        });
     }
   };
 

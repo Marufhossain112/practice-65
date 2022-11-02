@@ -6,11 +6,9 @@ import Show from "../components/Show/Show";
 export const router = createBrowserRouter([
   { path: "/", element: <Home></Home> },
   {
-    path: "/show",
+    path: "/users",
     element: <Show></Show>,
-    loader: () => {
-      return fetch("http://localhost:5000/users");
-    },
+    loader: () => fetch("http://localhost:5000/users"),
   },
   { path: "/users/add", element: <AddUser></AddUser> },
 ]);
