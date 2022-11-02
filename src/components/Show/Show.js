@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Show = () => {
   const users = useLoaderData();
@@ -16,12 +16,11 @@ const Show = () => {
           if (data.deletedCount > 0) {
             const remaining = displayUser.filter((usr) => usr._id !== user._id);
             setDisplayUser(remaining);
-            // console.log(remaining);
           }
-          // setdisplayUser(users);
         });
     }
   };
+  const handleUpdate = (event) => {};
 
   return (
     <div>
@@ -31,6 +30,9 @@ const Show = () => {
           <p key={usr._id}>
             {" "}
             {usr.name} {usr.email} {usr.address}
+            <Link to={usr._id}>
+              <button onClick={() => handleUpdate(usr)}>Update</button>
+            </Link>
             {<button onClick={() => handleDelete(usr)}>X</button>}
           </p>
         ))}
