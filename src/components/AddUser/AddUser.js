@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 
 const AddUser = () => {
-  const [user, setUser] = useState({
-    name: "Maaruf",
-    email: "maruf@gmail.com",
-  });
+  const [user, setUser] = useState({});
   const handleForm = (event) => {
     event.preventDefault();
-    console.log(user);
+    // setUser(user);
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -21,7 +18,6 @@ const AddUser = () => {
           alert("Data successfully submitted.");
           event.target.reset();
         }
-        console.log(data);
       });
   };
   const handleBlur = (event) => {

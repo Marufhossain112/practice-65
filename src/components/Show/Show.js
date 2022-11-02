@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Show = () => {
   const users = useLoaderData();
-  const [displayUser, setdisplayUser] = useState(users);
+  const [displayUser, setDisplayUser] = useState(users);
   // console.log(users);
   const handleDelete = (user) => {
     const agreement = window.confirm(`Are you sure to delete ${user.name}`);
@@ -15,9 +15,10 @@ const Show = () => {
         .then((data) => {
           if (data.deletedCount > 0) {
             const remaining = displayUser.filter((usr) => usr._id !== user._id);
-            setdisplayUser(remaining);
-            console.log(remaining);
+            setDisplayUser(remaining);
+            // console.log(remaining);
           }
+          // setdisplayUser(users);
         });
     }
   };
